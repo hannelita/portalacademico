@@ -1,3 +1,15 @@
+Hi! This project contains an example of a Seam 3 project! Hope I can help people to understand better this frameworks by giving them some practical code examples. The main objective of this sample is to make a portal for an university where the students can have information about professors, courses, classes, events, exams and tests and other important stuff for academical life.
+
+------------------------//----------------------------//------------IMPORTANT: At pom.xm, into <properties> tag, change 
+<jboss.home>/usr/local/jboss/jboss-6.0.0.Final/</jboss.home>
+for your current Jboss AS location! 
+------------------------//----------------------------//------------
+
+This project has been made from Weld Archetype. You should be able run this on Jboss 6 without any issues.
+
+--------------------------------------------------------------------
+
+
  portalacademico
  ++++++++++++++++++++++++
 
