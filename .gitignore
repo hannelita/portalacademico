@@ -8,7 +8,7 @@ Thumbs.db
 target/*
 target/*.*
 
-/.settings
+.settings/
 /.settings/*.*
 .classpath
 *.classpath
