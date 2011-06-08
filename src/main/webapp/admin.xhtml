@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:s="http://jboss.org/seam/faces"
+	template="/WEB-INF/templates/default.xhtml">
+
+	<ui:define name="content">
+		<rich:panel>
+			<f:facet name="header">
+Administre o conteúdo aqui        </f:facet>
+			<h:form>
+				<rich:toolbar style="menu">
+
+					<rich:dropDownMenu>
+
+						<f:facet name="label">
+							<h:panelGroup>
+								<h:outputText value="Alunos" />
+							</h:panelGroup>
+						</f:facet>
+
+						<rich:menuItem submitMode="none"
+							onclick="document.location.href='#{request.contextPath}/aluno/registrar.xhtml}'">
+							<h:outputLink
+								value="#{request.contextPath}/aluno/registrar.xhtml">
+								<h:outputText value="Registrar"></h:outputText>
+							</h:outputLink>
+						</rich:menuItem>
+					</rich:dropDownMenu>
+
+					<rich:dropDownMenu>
+						<f:facet name="label">
+							<h:panelGroup>
+								<h:outputText value="Professores" />
+							</h:panelGroup>
+						</f:facet>
+						<rich:menuItem submitMode="none"
+							onclick="document.location.href='#{request.contextPath}/disciplinas/registrar.xhtml}'">
+							<h:outputLink
+								value="#{request.contextPath}/disciplinas/registrar.xhtml">
+								<h:outputText value="Registrar"></h:outputText>
+							</h:outputLink>
+						</rich:menuItem>
+						<rich:menuItem submitMode="none"
+							onclick="document.location.href='#{request.contextPath}/disciplinas/registrar.xhtml}'">
+							<h:outputLink
+								value="#{request.contextPath}/disciplinas/registrar.xhtml">
+								<h:outputText value="Consultar Alocacoes"></h:outputText>
+							</h:outputLink>
+						</rich:menuItem>
+					</rich:dropDownMenu>
+
+					<rich:dropDownMenu>
+						<f:facet name="label">
+							<h:panelGroup>
+								<h:outputText value="Disciplinas" />
+							</h:panelGroup>
+						</f:facet>
+						<rich:menuItem submitMode="none"
+							onclick="document.location.href='#{request.contextPath}/disciplinas/registrar.xhtml}'">
+							<h:outputLink
+								value="#{request.contextPath}/disciplinas/registrar.xhtml">
+								<h:outputText value="Registrar"></h:outputText>
+							</h:outputLink>
+						</rich:menuItem>
+						<rich:menuItem submitMode="none"
+							onclick="document.location.href='#{request.contextPath}/disciplinas/registrar.xhtml}'">
+							<h:outputLink
+								value="#{request.contextPath}/disciplinas/registrar.xhtml">
+								<h:outputText value="Consultar"></h:outputText>
+							</h:outputLink>
+						</rich:menuItem>
+					</rich:dropDownMenu>
+
+					<rich:dropDownMenu>
+						<f:facet name="label">
+							<h:panelGroup>
+								<h:outputText value="Eventos" />
+							</h:panelGroup>
+						</f:facet>
+						<rich:menuItem submitMode="none"
+							onclick="document.location.href='#{request.contextPath}/disciplinas/registrar.xhtml}'">
+							<h:outputLink
+								value="#{request.contextPath}/disciplinas/registrar.xhtml">
+								<h:outputText value="Registrar"></h:outputText>
+							</h:outputLink>
+						</rich:menuItem>
+						<rich:menuItem submitMode="none"
+							onclick="document.location.href='#{request.contextPath}/disciplinas/registrar.xhtml}'">
+							<h:outputLink
+								value="#{request.contextPath}/disciplinas/registrar.xhtml">
+								<h:outputText value="Consultar"></h:outputText>
+							</h:outputLink>
+						</rich:menuItem>
+					</rich:dropDownMenu>
+
+					<rich:dropDownMenu>
+						<f:facet name="label">
+							<h:panelGroup>
+								<h:outputText value="Estágio" />
+							</h:panelGroup>
+						</f:facet>
+						<rich:menuItem submitMode="none"
+							onclick="document.location.href='#{request.contextPath}/disciplinas/registrar.xhtml}'">
+							<h:outputLink
+								value="#{request.contextPath}/disciplinas/registrar.xhtml">
+								<h:outputText value="Registrar"></h:outputText>
+							</h:outputLink>
+						</rich:menuItem>
+						<rich:menuItem submitMode="none"
+							onclick="document.location.href='#{request.contextPath}/disciplinas/registrar.xhtml}'">
+							<h:outputLink
+								value="#{request.contextPath}/disciplinas/registrar.xhtml">
+								<h:outputText value="Consultar"></h:outputText>
+							</h:outputLink>
+						</rich:menuItem>
+					</rich:dropDownMenu>
+
+				</rich:toolbar>
+			</h:form>
+		</rich:panel>
+	</ui:define>
+</ui:composition>

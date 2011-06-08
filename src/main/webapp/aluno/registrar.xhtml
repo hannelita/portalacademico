@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:s="http://jboss.org/seam/faces"
+	template="/WEB-INF/templates/default.xhtml">
+
+	<ui:define name="content">
+		<rich:panel>
+			<f:facet name="header">
+        Registre os alunos
+        </f:facet>
+
+
+			<h:form id="reg">
+
+				<table>
+					<tr>
+						<th style="text-align: right;"><h:outputLabel for="name"
+								value="Name:" /></th>
+						<td><h:inputText id="name" value="#{aluno.nome}" /> <h:message
+								for="name" errorClass="invalid" /></td>
+					</tr>
+					<tr>
+						<th style="text-align: right;"><h:outputLabel for="email"
+								value="Email:" /></th>
+						<td><h:inputText id="email" value="#{aluno.email}" /> <h:message
+								for="email" errorClass="invalid" /></td>
+					</tr>
+					<tr>
+						<th style="text-align: right;"><h:outputLabel
+								for="phoneNumber" value="Ano de Entrada:" /></th>
+						<td><h:inputText id="anoEntrada" value="#{aluno.anoEntrada}" />
+							<h:message for="anoEntrada" errorClass="invalid" /></td>
+					</tr>
+					<tr>
+						<th style="text-align: right;"><h:outputLabel for="matricula"
+								value="Matrícula #:" /></th>
+						<td><h:inputText id="matricula" value="#{aluno.matricula}" />
+							<h:message for="matricula" errorClass="invalid" /></td>
+					</tr>
+					<tr>
+						<th style="text-align: right;"><h:outputLabel for="curso"
+								value="Curso:" /></th>
+						<td><h:selectOneMenu id="curso" value="#{aluno.curso}">
+								<f:selectItems value="#{alunoRegistration.cursosValue}" />
+							</h:selectOneMenu> <h:message for="curso" errorClass="invalid" /></td>
+						<th style="text-align: right;"><h:outputLabel
+								for="statusAluno" value="Status do Aluno:" /></th>
+						<td><h:selectOneMenu id="statusAluno"
+								value="#{aluno.stausAluno}">
+								<f:selectItems value="#{alunoRegistration.statusAlunoValue}" />
+							</h:selectOneMenu> <h:message for="statusAluno" errorClass="invalid" /></td>
+					</tr>
+				</table>
+				<p>
+					<h:commandButton id="register"
+						action="#{alunoRegistration.register}" value="Registrar" />
+					<h:outputText value=" Registered!"
+						rendered="#{facesContext.postback and empty facesContext.messageList}"
+						style="color: green;" />
+				</p>
+			</h:form>
+			<h2>Alunos</h2>
+			<h:panelGroup rendered="#{empty alunos}">
+				<em>Não há alunos registrados.</em>
+			</h:panelGroup>
+			<h:dataTable var="_aluno" value="#{alunos}"
+				rendered="#{not empty alunos}">
+				<h:column>
+					<f:facet name="header">Id</f:facet>
+                #{_aluno.id}
+            </h:column>
+				<h:column>
+					<f:facet name="header">Nome</f:facet>
+                #{_aluno.nome}
+            </h:column>
+				<h:column>
+					<f:facet name="header">Email</f:facet>
+                #{_aluno.email}
+            </h:column>
+				<h:column>
+					<f:facet name="header">Matrícula</f:facet>
+                #{_aluno.matricula}
+            </h:column>
+				<h:column>
+					<f:facet name="header">Curso</f:facet>
+                #{_aluno.curso}
+            </h:column>
+				<h:column>
+					<f:facet name="header">REST URL</f:facet>
+					<a href="#{request.contextPath}/rest/alunos/#{_aluno.id}">/rest/alunos/#{_aluno.id}</a>
+				</h:column>
+				<h:column>
+					<h:commandButton id="delete" action="#{alunoRegistration.remove}"
+						value="Remover" />
+
+				</h:column>
+				<f:facet name="footer">
+                REST URL for all members: <a
+						href="#{request.contextPath}/rest/alunos">/rest/members</a>
+				</f:facet>
+			</h:dataTable>
+		</rich:panel>
+	</ui:define>
+</ui:composition>

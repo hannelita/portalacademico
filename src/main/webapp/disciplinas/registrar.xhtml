@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:s="http://jboss.org/seam/faces"
+	template="/WEB-INF/templates/default.xhtml">
+
+	<ui:define name="content">
+		<rich:panel>
+			<f:facet name="header">
+        Registre as disciplinas
+        </f:facet>
+
+
+			<h:form id="reg">
+
+				<table>
+					<tr>
+						<th style="text-align: right;"><h:outputLabel for="name"
+								value="Name:" /></th>
+						<td><h:inputText id="name" value="#{disciplina.nome}" /> <h:message
+								for="name" errorClass="invalid" /></td>
+					</tr>
+					<tr>
+						<th style="text-align: right;"><h:outputLabel for="sigla"
+								value="Sigla:" /></th>
+						<td><h:inputText id="sigla" value="#{disciplina.sigla}" /> <h:message
+								for="sigla" errorClass="invalid" /></td>
+					</tr>
+					<tr>
+						<th style="text-align: right;"><h:outputLabel
+								for="cargaHoraria" value="Carga Horária:" /></th>
+						<td><h:inputText id="cargaHoraria" value="#{disciplina.cargaHoraria}" />
+							<h:message for="cargaHoraria" errorClass="invalid" /></td>
+					</tr>
+					
+				</table>
+				<p>
+					<h:commandButton id="register"
+						action="#{disciplinaRegistration.register}" value="Registrar" />
+					<h:outputText value=" Registered!"
+						rendered="#{facesContext.postback and empty facesContext.messageList}"
+						style="color: green;" />
+				</p>
+			</h:form>
+			<h2>Disciplinas</h2>
+			<h:panelGroup rendered="#{empty disciplinas}">
+				<em>Não há disciplinas registrados.</em>
+			</h:panelGroup>
+			<h:dataTable var="_disciplina" value="#{disciplinas}"
+				rendered="#{not empty disciplinas}">
+				<h:column>
+					<f:facet name="header">Id</f:facet>
+                #{_disciplina.id}
+            </h:column>
+				<h:column>
+					<f:facet name="header">Nome</f:facet>
+                #{_disciplina.nome}
+            </h:column>
+				<h:column>
+					<f:facet name="header">Sigla</f:facet>
+                #{_disciplina.sigla}
+            </h:column>
+				<h:column>
+					<f:facet name="header">Carga horária</f:facet>
+                #{_disciplina.cargaHoraria}
+            </h:column>
+				
+				<h:column>
+					<h:commandButton id="delete" action="#{disciplinaRegistration.remove}"
+						value="Remover" />
+
+				</h:column>
+				<f:facet name="footer">
+                REST URL for all members: <a
+						href="#{request.contextPath}/rest/disciplinas">/rest/members</a>
+				</f:facet>
+			</h:dataTable>
+		</rich:panel>
+	</ui:define>
+</ui:composition>
