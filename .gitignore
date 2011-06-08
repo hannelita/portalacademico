@@ -7,3 +7,7 @@ Thumbs.db
 
 target/*
 target/*.*
+
+/.settings
+/.settings/*.*
+.classpath
